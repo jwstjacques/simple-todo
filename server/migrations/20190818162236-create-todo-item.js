@@ -9,10 +9,21 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       content: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       complete: {
+        allowNull: false,
         type: Sequelize.BOOLEAN
+      },
+      todoId: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Todos',
+          key: 'id',
+          as: 'todoId'
+        }
       },
       createdAt: {
         allowNull: false,
